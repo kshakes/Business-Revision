@@ -29,4 +29,26 @@ def calculateARR():
     print ("Avg Investment: £", avgInvestment)
     print (round(accountingRateOfReturn, 2))
 
-calculateARR()
+def paybackPeriod():
+    cashFlows = []
+
+    initInvestment = random.randint(12, 16) * 1000 # Generate a random initial investment
+    amountOfCashFlows = random.randint(3,5) # Generate a random amount of cash flowing years
+    print ("Initial Investment: £", initInvestment)
+
+    for year in range (amountOfCashFlows): # Loops through the amount of cash flowing years
+        cashFlows.append(random.randint(4, 7) * 1000) # Append a random cash flow
+        print ("Year ", year+1, ": ", cashFlows[year]) # Print the cash flows
+
+    projectBalance = 0 - initInvestment
+
+    for years in range (len(cashFlows)):
+        #print ("Years: ", years+1)
+        projectBalance += cashFlows[years]
+        if (projectBalance >= 0):
+            print ("Printing cash flows after 0:  ", cashFlows[years])
+            print ("Printing the answer: ")
+            pbpMonths = (cashFlows[years-1]/cashFlows[years]) * 12
+            print ("1 Year ", pbpMonths, " Months")
+
+paybackPeriod()
