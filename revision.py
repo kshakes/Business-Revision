@@ -15,14 +15,11 @@ def calculateARR():
     avgOpProfit = profit / len(cashFlows) # Worked out by dividing profit by amount of years
 
     avgInvestment = initInvestment / 2
-    accountingRateOfReturn = (avgOpProfit/avgInvestment) * 100
+    accountingRateOfReturn = round((avgOpProfit/avgInvestment) * 100, 2)
 
     usersAnswer = float(input("Input Answer -> ")) # Let the user input the answer 
 
-    if usersAnswer == round(accountingRateOfReturn, 2): # Check if its correct
-        print ("Correct!")
-    else:
-        print ("Incorrect :(")
+    print(isAnswerCorrect(usersAnswer, accountingRateOfReturn))
     
     #Show answers here
     print ("Avg Operating Profit: £", avgOpProfit)
@@ -44,6 +41,17 @@ def NetPresentValue():
         cashFlows.append(random.randint(11, 18) * 1000) # Append a random cash flow
         print ("Year ", year+1, ": ", cashFlows[year]) # Print the cash flows
         npv += cashFlows[year] / math.pow(1+discountRate, year+1)
-    print (npv)
+
+    usersAnswer = float(input("Input Answer -> ")) # Let the user input the answer 
+    print(isAnswerCorrect(usersAnswer, npv))
+
+    #Show answer here
+    print (round(npv, 2))
+
+def isAnswerCorrect(usersAnswer, answer):
+    if usersAnswer == round(answer, 2): # Check if its correct
+        return "Correct!"
+    else:
+        return "Incorrect :("
 
 NetPresentValue()
