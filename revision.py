@@ -123,6 +123,11 @@ def partnershipAccounting():
         shareOfProfit[index] = partner
     print ("Share of Profit:\nA -> £", shareOfProfit[0], "\nB -> £", shareOfProfit[1], "\nC -> £", shareOfProfit[2])
 
+    partnerCurrentAccountTable = PrettyTable(["", "A", "B", "C"])
+    partnerCurrentAccountTable.add_row(["Current Account 31/12/22", currentAccountBalances[0], currentAccountBalances[1], currentAccountBalances[2]])
+    partnerCurrentAccountTable.add_row(["PnL From Appropriation", shareOfProfit[0], shareOfProfit[1], shareOfProfit[2]])
+    partnerCurrentAccountTable.add_row(["Drawings", drawingAmount[0], drawingAmount[1], drawingAmount[2]])
+
     #Partner Current Account:
     for index, partner in enumerate(currentAccountBalances):
         partner = partner + shareOfProfit[index] - drawingAmount[index]
@@ -138,11 +143,15 @@ def partnershipAccounting():
     pNlAppropriationAcc.add_row(["Drawing Interest", drawingAmount[0] * drawingInterestRate, drawingAmount[1] * drawingInterestRate, drawingAmount[2] * drawingInterestRate])
     pNlAppropriationAcc.add_row(["Total Proft/Loss", shareOfProfit[0], shareOfProfit[1], shareOfProfit[2]])
 
+    #CurrentAccountBalance changes after line 131, so this line is added to reflect the total after taking drawings away
+    partnerCurrentAccountTable.add_row(["Current Account at 31/12/23", currentAccountBalances[0], currentAccountBalances[1], currentAccountBalances[2]])
+
     print ("Answer -> ", answer)
 
     print(isAnswerCorrect(usersAnswer, str(answer)))
 
     print (NetProfitTable)
     print (pNlAppropriationAcc)
+    print (partnerCurrentAccountTable)
 
 partnershipAccounting()
