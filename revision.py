@@ -78,7 +78,7 @@ def partnershipAccounting():
     netProfit = random.randint(150,250) * 1000
 
     #Introduce the question
-    print ("A, B, C are in partnership and their agreements include:\ni. Interest at ", capAInterestRate * 100, "% charged on capital accounts\nii. No interest on current accounts\niii. A recieves a salary of £",salaries[0], "\niv. B recieves a salary of £", salaries[1], "\nv. C recieves a salary of £", salaries[2], "vi. Profit sharing is ", profitShare[0], ":", profitShare[1], ":", profitShare[2], "\nvii. Interest on drawings was charged at ", drawingInterestRate*100, "% per annum")
+    print ("A, B, C are in partnership and their agreements include:\ni. Interest at ", capAInterestRate * 100, "% charged on capital accounts\nii. No interest on current accounts\niii. A recieves a salary of £",salaries[0], "\niv. B recieves a salary of £", salaries[1], "\nv. C recieves a salary of £", salaries[2], "\nvi. Profit sharing is ", profitShare[0], ":", profitShare[1], ":", profitShare[2], "\nvii. Interest on drawings was charged at ", drawingInterestRate*100, "% per annum")
     print ("During the year, A made drawings of £", drawingAmount[0], ", B made drawings of £", drawingAmount[1], ", C made drawings of £", drawingAmount[2], ". Assume these are all made on 1/1/2023")
     print ("A, B, and C's current accounts at 31/12/2022 were £", currentAccountBalances[0], ", £", currentAccountBalances[1], ", £", currentAccountBalances[2], " respectively")
     print ("A, B, and C's capital accounts at 31/12/2022 were £", capitalAccountBalances[0], ", £", capitalAccountBalances[1], ", £", capitalAccountBalances[2], " respectively")
@@ -131,7 +131,7 @@ def partnershipAccounting():
     #Partner Current Account:
     for index, partner in enumerate(currentAccountBalances):
         partner = partner + shareOfProfit[index] - drawingAmount[index]
-        currentAccountBalances[index] = partner
+        currentAccountBalances[index] = round(partner, 2)
     print ("Current Accounts:\nA -> £", currentAccountBalances[0], "\nB -> £", currentAccountBalances[1], "\nC -> £", currentAccountBalances[2])
 
     answer = "{:,.0f}, {:,.0f}, {:,.0f}".format(currentAccountBalances[0], currentAccountBalances[1], currentAccountBalances[2])
