@@ -54,4 +54,34 @@ def isAnswerCorrect(usersAnswer, answer):
     else:
         return "Incorrect :("
 
-NetPresentValue()
+def partnershipAccounting():
+    # capA = Capital Account interest rate
+    capAInterestRate = random.randint(5,10) / 100
+    #Salaries [0] = A, [1] = B, [2] = C
+    salaries = [random.randint(10,50) * 1000, random.randint(30,60) * 1000, random.randint(30, 80) * 1000]
+    #Profit Share
+    profitShare = [random.randint(1,5),random.randint(1,5),random.randint(1,5)]
+    #Interest rate on drawings
+    drawingInterestRate = random.randint(5,15) / 100
+
+    #Drawing Amount
+    drawingAmount = [random.randint(50,80) * 1000, random.randint(40,80) * 1000, random.randint(30,80) * 1000]
+
+    #Current Accounts
+    currentAccountBalances = [random.randint(20,50) * 1000, random.randint(10,30) * 1000, random.randint(20,40) * 1000]
+
+    #Net Profit
+    netProfit = random.randint(150,250) * 1000
+
+    #Step 1, Net Profit Adjustments to find share of profit
+    print ("Net Profit: £", netProfit)
+    print ("Capital Account Interest Rate: ", capAInterestRate, "%")
+    print ("Salaries: ", salaries)
+    print ("Profit sharing ratio: ", profitShare)
+    print ("Drawing interest rate: ", drawingInterestRate, "%")
+    print ("Drawing Amount: ", drawingAmount)
+    print ("Current Accounts: ", currentAccountBalances)
+
+    
+
+partnershipAccounting()
