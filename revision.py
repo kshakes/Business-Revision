@@ -131,12 +131,18 @@ def partnershipAccounting():
 
     answer = "{:,.0f}, {:,.0f}, {:,.0f}".format(currentAccountBalances[0], currentAccountBalances[1], currentAccountBalances[2])
 
-    
+    pNlAppropriationAcc = PrettyTable(["", "A", "B", "C"])
+    pNlAppropriationAcc.add_row(["Balance on Profits", shareOfProfit[0], shareOfProfit[1], shareOfProfit[2]])
+    pNlAppropriationAcc.add_row(["Interest on Capital", capitalAccountBalances[0] * capAInterestRate, capitalAccountBalances[1] * capAInterestRate, capitalAccountBalances[2] * capAInterestRate])
+    pNlAppropriationAcc.add_row(["Salary", salaries[0], salaries[1], salaries[2]])
+    pNlAppropriationAcc.add_row(["Drawing Interest", drawingAmount[0] * drawingInterestRate, drawingAmount[1] * drawingInterestRate, drawingAmount[2] * drawingInterestRate])
+    pNlAppropriationAcc.add_row(["Total Proft/Loss", shareOfProfit[0], shareOfProfit[1], shareOfProfit[2]])
 
     print ("Answer -> ", answer)
 
     print(isAnswerCorrect(usersAnswer, str(answer)))
 
     print (NetProfitTable)
+    print (pNlAppropriationAcc)
 
 partnershipAccounting()
