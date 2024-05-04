@@ -70,6 +70,9 @@ def partnershipAccounting():
     #Current Accounts
     currentAccountBalances = [random.randint(20,50) * 1000, random.randint(10,30) * 1000, random.randint(20,40) * 1000]
 
+    #Capital Account Balances
+    capitalAccountBalances = [random.randint(50,100) * 1000, random.randint(60,100) * 1000, random.randint(50,90) * 1000]
+
     #Net Profit
     netProfit = random.randint(150,250) * 1000
 
@@ -81,7 +84,16 @@ def partnershipAccounting():
     print ("Drawing interest rate: ", drawingInterestRate, "%")
     print ("Drawing Amount: ", drawingAmount)
     print ("Current Accounts: ", currentAccountBalances)
+    print ("Capital Accounts: ", capitalAccountBalances)
 
-    
+    shareOfProfit = []
+    netProfitAdj = netProfit + (drawingAmount[0] * drawingInterestRate) + (drawingAmount[1] * drawingInterestRate) + (drawingAmount[2] * drawingInterestRate) - (sum(salaries)) - (capitalAccountBalances[0] * capAInterestRate) - (capitalAccountBalances[1] * capAInterestRate) - (capitalAccountBalances[2] * capAInterestRate)
+
+    shareOfProfit.append(netProfitAdj * (profitShare[0] / sum(profitShare)))
+    shareOfProfit.append(netProfitAdj * (profitShare[1] / sum(profitShare)))
+    shareOfProfit.append(netProfitAdj * (profitShare[2] / sum(profitShare)))
+
+    for i in shareOfProfit:
+        print ("£", i)
 
 partnershipAccounting()
