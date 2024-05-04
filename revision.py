@@ -87,7 +87,7 @@ def partnershipAccounting():
     print ("Capital Accounts: ", capitalAccountBalances)
 
     shareOfProfit = []
-    netProfitAdj = netProfit + (drawingAmount[0] * drawingInterestRate) + (drawingAmount[1] * drawingInterestRate) + (drawingAmount[2] * drawingInterestRate) - (sum(salaries)) - (capitalAccountBalances[0] * capAInterestRate) - (capitalAccountBalances[1] * capAInterestRate) - (capitalAccountBalances[2] * capAInterestRate)
+    print(netProfit + (sum(drawingAmount) * drawingInterestRate) - sum(salaries) - (sum(capitalAccountBalances) * capAInterestRate))
 
     shareOfProfit.append(netProfitAdj * (profitShare[0] / sum(profitShare)))
     shareOfProfit.append(netProfitAdj * (profitShare[1] / sum(profitShare)))
@@ -95,5 +95,8 @@ def partnershipAccounting():
 
     for i in shareOfProfit:
         print ("£", i)
+    
+    #Profit and Loss Appropriation Account:
+
 
 partnershipAccounting()
